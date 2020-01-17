@@ -1,1 +1,8 @@
 # ohtu-2020
+
+Repositorio Helsingin yliopiston [Ohjelmistotuotanto](https://ohjelmistotuotanto-hy-avoin.github.io/) kurssin tehtäviä varten.
+
+## Tehtävät
+
+- [Viikko 1, tehtävät 2-13](https://github.com/MiguelSombrero/ohtu-2020-viikko1)
+- [Viikko 1, tehtävät 14-16](https://github.com/MiguelSombrero/ohtu-2020/viikko1/tehtavat14-16)
