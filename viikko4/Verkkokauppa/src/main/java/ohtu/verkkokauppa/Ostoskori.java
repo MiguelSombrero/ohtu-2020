@@ -17,6 +17,10 @@ public class Ostoskori {
     public void poista(Tuote t) {
         tuotteet.remove(t);
     }
+    
+    public boolean sisaltaa(Tuote t) {
+    	return tuotteet.contains(t);
+    }
 
     public int hinta() {
         int hinta = 0;
