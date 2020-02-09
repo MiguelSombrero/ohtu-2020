@@ -5,9 +5,15 @@ import javafx.scene.control.TextField;
 
 public abstract class Operaatio extends Komento {
 	protected int syote;
+	protected int edellinen;
 	
 	public Operaatio(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
 		super(tuloskentta, syotekentta, nollaa, undo, sovellus);
+	}
+	
+	private void tulosta() {
+		syotekentta.setText("");
+	    tuloskentta.setText("" + sovellus.tulos());
 	}
 	
 	@Override
@@ -19,17 +25,15 @@ public abstract class Operaatio extends Komento {
 			
 		}
 		
+		edellinen = sovellus.tulos();
 		laske();
-		int tulos = sovellus.tulos();
-		syotekentta.setText("");
-	    tuloskentta.setText("" + tulos);
-		
+		tulosta();
 	}
 
 	@Override
 	public void peru() {
-		// TODO Auto-generated method stub
-		
+		sovellus.aseta(edellinen);
+		tulosta();
 	}
 	
 	protected abstract void laske();

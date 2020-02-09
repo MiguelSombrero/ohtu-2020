@@ -16,6 +16,10 @@ public class Sovelluslogiikka {
         tulos = 0;
     }
  
+    public void aseta(int arvo) {
+    	this.tulos = arvo;
+    }
+    
     public int tulos() {
         return tulos;
     }

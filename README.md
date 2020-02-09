@@ -9,3 +9,4 @@ Repositorio Helsingin yliopiston [Ohjelmistotuotanto](https://ohjelmistotuotanto
 - [Viikko 2](https://github.com/MiguelSombrero/ohtu-2020/tree/master/viikko2)
 - [Viikko 3](https://github.com/MiguelSombrero/ohtu-2020/tree/master/viikko3)
 - [Viikko 4](https://github.com/MiguelSombrero/ohtu-2020/tree/master/viikko4)
+- [Viikko 5](https://github.com/MiguelSombrero/ohtu-2020/tree/master/viikko5)
