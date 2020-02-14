@@ -5,11 +5,12 @@ import java.lang.reflect.Method;
 import statistics.Player;
 
 public class HasAtLeast implements Matcher {
-    
+	private Matcher matcher;
     private int value;
     private String fieldName;
 
-    public HasAtLeast(int value, String category) {
+    public HasAtLeast(Matcher matcher, int value, String category) {
+    	this.matcher = matcher;
         this.value = value;
         fieldName = "get"+Character.toUpperCase(category.charAt(0))+category.substring(1, category.length());
     }
@@ -19,7 +20,12 @@ public class HasAtLeast implements Matcher {
         try {                                    
             Method method = p.getClass().getMethod(fieldName);
             int playersValue = (Integer)method.invoke(p);
-            return playersValue>=value;
+            
+            if (playersValue < value) {
+            	return false;
+            }
+            
+            return matcher.matches(p);
             
         } catch (Exception ex) {
             System.out.println(ex);

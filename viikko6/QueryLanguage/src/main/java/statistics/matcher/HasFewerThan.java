@@ -3,16 +3,21 @@ package statistics.matcher;
 import statistics.Player;
 
 public class HasFewerThan implements Matcher {
-
+	private Matcher matcher;
 	private HasAtLeast atLeastMatcher;
 	
-	public HasFewerThan(int value, String category) {
-		this.atLeastMatcher = new HasAtLeast(value, category);
+	public HasFewerThan(Matcher matcher, int value, String category) {
+		this.matcher = matcher;
+		this.atLeastMatcher = new HasAtLeast(matcher, value, category);
 	}
 	
 	@Override
 	public boolean matches(Player p) {
-		return !atLeastMatcher.matches(p);
+		if (atLeastMatcher.matches(p)) {
+			return false;
+		}
+		
+		return matcher.matches(p);
 	}
 
 }
