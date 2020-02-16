@@ -9,14 +9,11 @@ public class KPSTekoaly extends KPSTemplate {
     }
     
 	@Override
-	protected void siirra(String eka, String toka) {
-		System.out.print("Ensimmäisen pelaajan siirto: ");
-        eka = scanner.nextLine();
-        
-        toka = tekoaly.annaSiirto();
+	protected String siirra(String eka) {
+        String toka = tekoaly.annaSiirto();
         System.out.println("Tietokone valitsi: " + toka);
-        
         tekoaly.asetaSiirto(eka);
+        return toka;
 	}
 
     

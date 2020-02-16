@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Paaohjelma {
 
     private static final Scanner scanner = new Scanner(System.in);
+    private static KPS peli;
 
     public static void main(String[] args) {
 
@@ -15,23 +16,20 @@ public class Paaohjelma {
                     + "\n (c) parannettua tekoälyä vastaan"
                     + "\nmuilla valinnoilla lopetataan");
 
+            System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
             String vastaus = scanner.nextLine();
+            
             if (vastaus.endsWith("a")) {
-                System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPS kaksinpeli = new KPSPelaajaVsPelaaja();
-                kaksinpeli.pelaa();
+                peli = KPSTemplate.luoKPSPelaajaVsPelaaja();
             } else if (vastaus.endsWith("b")) {
-                System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPS yksinpeli = new KPSTekoaly( new Tekoaly() );
-                yksinpeli.pelaa();
+                peli = KPSTemplate.luoKPSHelppoTekoaly();
             } else if (vastaus.endsWith("c")) {
-                System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPS pahaYksinpeli = new KPSTekoaly( new TekoalyParannettu(20) );
-                pahaYksinpeli.pelaa();
+                peli = KPSTemplate.luoKPSVaikeaTekoaly(20);
             } else {
                 break;
             }
 
+            peli.pelaa();
         }
 
     }
